@@ -17,6 +17,7 @@ using namespace std;
                 this->health = health;
                 this->level = level;
             }
+            
             void print(){
                 cout<<level<<endl;
             }

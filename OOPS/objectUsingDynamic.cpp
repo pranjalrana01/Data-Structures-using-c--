@@ -47,15 +47,6 @@ int main(){
      cout<<"level is "<<b->level<<endl;
     cout<<"health is "<<b->getHealth()<<endl;
 
-    // cout<<"a health is : "<<a.getHealth()<<endl;
-    // //a.health = 70;
-    
-    // //use setter
-    // a.setHealth(70);
-    // a.level = 'A';
-
-    // cout<<"health is : "<<a.getHealth()<<endl;
-    // cout<<"level is : "<<a.level<<endl;
 
     return 0;
 }

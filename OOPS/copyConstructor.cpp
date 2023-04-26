@@ -9,6 +9,7 @@ using namespace std;
         public:
             char *name;
             char level;
+            static int timeToComplete;
 
             //default constructor
             Hero(){
@@ -26,11 +27,14 @@ using namespace std;
             }
 
             //copy constructor
-            Hero(Hero& temp){
-                cout<<"copy constructor called"<<endl;
-                this->health = temp.health;
-                this->level = temp.level;
-            }
+         Hero(Hero& temp){
+            char *ch = new char[strlen(temp.name) + 1];
+            strcpy(ch,temp.name);
+            this->name = ch;
+             cout<<"copy constructor called"<<endl;
+             this->health = temp.health;
+             this->level = temp.level;
+         }
             
             void print(){
                 cout<<endl;
@@ -58,8 +62,17 @@ using namespace std;
                 strcpy(this->name,name);
             }
 
+            static int random(){
+                cout<<timeToComplete<<endl;
+            }
+
+            ~Hero(){
+                cout<<"destructor called"<<endl;
+            }
             
     };
+
+    int Hero::timeToComplete = 5;
 
 int main(){
     
@@ -71,6 +84,18 @@ int main(){
 
     hero1.print();
     
+    //use default copy constructor
+    Hero hero2(hero1);
+    hero2.print();
+    hero1.name[0] = 'G';
+    hero1.print();
+
+    hero2.print();
+
+    cout<<endl;
+    cout<<endl;
+
+    cout<<Hero::random()<<endl;
 
     return 0;
 }
