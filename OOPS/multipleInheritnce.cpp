@@ -6,6 +6,7 @@ using namespace std;
         public:
         int age;
         int weight;
+        int b;
 
         public:
         void bark(){
@@ -28,8 +29,10 @@ using namespace std;
     };
 
 int main(){
+    
    Hybrid h1;
    h1.bark();
    h1.speak();
+
     return 0;
 }
