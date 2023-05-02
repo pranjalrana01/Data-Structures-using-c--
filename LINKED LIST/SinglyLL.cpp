@@ -10,6 +10,16 @@ using namespace std;
             this -> data = data;
             this -> next = NULL;
         }
+
+        //destructor
+        ~Node(){
+            int value = this->data;
+            if(this->next!=NULL){
+                delete next;
+                this->next = NULL;
+            }
+            cout<<"memory is free with data "<<value<<endl;
+        }
     };
 
     void insertAtHead(Node* &head, int d){
@@ -17,6 +27,38 @@ using namespace std;
         Node* temp = new Node(d);
         temp -> next = head;
         head = temp;
+    }
+
+    void insertAtTail(Node* &tail,int d){
+         //new node create
+        Node* temp = new Node(d);
+        tail->next = temp;
+        tail = temp;
+    }
+
+    void insertAtPosition(Node* &head,int position,int d){
+        Node* temp = head;
+        int cnt= 1;
+        while(cnt<position-1){
+            temp = temp->next;
+            cnt++;
+        }
+
+        //creating a node for d
+        Node* nodeToInsert = new Node(d);
+        nodeToInsert->next = temp->next;
+        temp->next = nodeToInsert;
+    }
+
+    void deleteNode(int position,Node* &head){
+        //deleting start node
+        if(position == 1){
+            Node* &temp = head;
+            head = head->next;
+            
+            //memory free krado
+            delete temp;
+        }
     }
 
     void print(Node* &head){
@@ -37,8 +79,16 @@ int main(){
 
     //head pointed to node1
     Node* head = node1;
+    Node* tail = node1;
     insertAtHead(head,20);
+    print(head);
+
+    insertAtTail(tail,30);
+    print(head);
+
+    insertAtPosition(head,2,25);
     print(head);
     
     return 0;
+
 }
