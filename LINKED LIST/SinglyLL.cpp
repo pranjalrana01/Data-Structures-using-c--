@@ -5,6 +5,8 @@ using namespace std;
         public:
         int data;
         Node *next;
+        int d;
+        
 
         Node(int data){
             this -> data = data;
