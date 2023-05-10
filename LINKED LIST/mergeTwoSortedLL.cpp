@@ -1,5 +1,11 @@
 void solve(Node<int>* first, Node<int>* second){
 
+    //if only one element is present in first list
+    if(first -> next == NULL){
+        first -> next = second;
+        return first;
+    }
+
     Node<int>* curr1 = first;
     Node<int>* next1 = curr1->next;
     Node<int>* curr2 = second;
