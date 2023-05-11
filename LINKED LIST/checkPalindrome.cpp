@@ -41,7 +41,10 @@ public:
         return checkPalindrome(arr);
     }
 };
+
 */
+
+// another solution of check palindrome
 
 class Solution{
     private:
